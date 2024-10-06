@@ -40,10 +40,11 @@ convertButton.addEventListener("click", async () => {
     const currencySymbol = selectedCurrency === "dolar" ? "$" : "€";
     result.innerHTML = `Resultado:  ${currencySymbol}${convertedAmount}`;
    
+    //destruir grafico si existe uno
     if (chartInstance) {
       chartInstance.destroy(); 
     }
-
+    //extraer valores y fechas
     let dates, values, label;
     if (selectedCurrency === "dolar") {
       dates = dolarValue.map((entry) => entry.fecha.split("T")[0]); // Fechas del dólar
